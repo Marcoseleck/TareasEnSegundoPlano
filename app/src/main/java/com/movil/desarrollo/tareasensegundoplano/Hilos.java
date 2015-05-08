@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class Hilos {
 int opcion;
        //METODO CON PARAMETROS DE LA OPCION Y ARREGLO
-        public  void miThread(final int opcion, float [] datos){
+        public  void miThread(final int opcion, final float [] datos){
             this.opcion=opcion;
 /*SE CREA UN HILO PARA PODER DETENRLO UNOS SEGUNDOS Y SABER IDENTIFICAR CUANDO EMPIEZA EL METODO DE ORDENACION*/
             Thread t = new Thread(){
@@ -20,14 +20,17 @@ int opcion;
                     /*Segun la opcion que obtengamos de la invocacion del metodo*/
                     switch (opcion) {
 
-                        case 1:    Log.w("Hilo","METODO1");
-                            ;
+                       /*METODO BURBUJA*/ case 1:
+                            Bubble b=new Bubble();
+                           b.sort(datos);
                             break;
 
-                        case 2:Log.w("Hilo","METODO2");
+                        case 2:Merge m=new Merge();
+
                             break;
                         case 3:
-                            Log.w("Hilo","METODO3");
+                            MyQuickSort q=new MyQuickSort();
+                            q.sort(datos);
                             break;
 
                     }

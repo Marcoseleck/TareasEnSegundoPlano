@@ -9,12 +9,18 @@ public class Bubble {
 
     private float []datos;
 
-    public void sort(float []datos){
+    public String sort(float []datos){
+        String aux="";
+
         this.datos=datos;
         int left = 0;
         int right = datos.length-1;
-        Log.w("Dentro del metodo de ordenacion", "HELLOW");
         bubbleSort(left,right);
+       for (int i=0;i<this.datos.length;i++){
+           aux+=this.datos[i];
+       }
+
+        return aux;
     }
 
     private void bubbleSort(int left,int right){
